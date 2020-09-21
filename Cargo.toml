@@ -1,5 +1,5 @@
 [package]
-name = "rusty-data"
+name = "rusty_data"
 version = "0.1.0"
 authors = ["aschi2 <austinchi2@yahoo.com>"]
 edition = "2018"
