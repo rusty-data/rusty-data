@@ -1,13 +1,23 @@
+use std::env;
 use std::fs;
-use std::env::args;
+
 
 fn main() -> std::io::Result<()> {
-    let args_list: Vec<String> = args().collect();
-    let file_one = &args_list[1];
-    let file_two = &args_list[2];
-    let dist = file_two.clone() + &file_one.clone();
-    println!("{}", dist);
+    let args: Vec<String> = env::args().collect();
+    let input = &args[1];
+    let output = &args[2];
+    
+    let clone_in = input.clone();
+    let heap: Vec<&str> = clone_in.split("/").collect();
+    println!("{:?}", heap);
 
-    fs::rename(file_one, dist)?;
+    let index = heap.len() - 1;
+    let part = &heap[index];
+    println!("{}", part);
+
+    let target = output.clone() + "/" + part.clone();
+
+    fs::rename(input, target)?;
+
     Ok(())
 }
